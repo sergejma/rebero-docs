@@ -1,0 +1,181 @@
+/* Rebero – Mitarbeiter-Anleitung. Bewusst groß, ruhig, hoher Kontrast.
+   Zielgruppe 50+: große Schrift, klare Schritte, viel Luft. */
+:root {
+  --blue: #004ac6;
+  --blue2: #2563eb;
+  --ink: #151c27;
+  --muted: #4a5169;
+  --line: #e4e9f5;
+  --bg: #eef2fb;
+  --card: #ffffff;
+  --amber-bg: #fff7e6;
+  --amber-bd: #f0b537;
+  --amber-tx: #92600a;
+  --red-bg: #fdecec;
+  --red-bd: #e0584f;
+  --red-tx: #a11b13;
+  --green-bg: #e7f7ec;
+  --green-tx: #1c7a3e;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.75;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 940px; margin: 0 auto; padding: 0 22px; }
+
+/* ── Kopf ───────────────────────────────────────────── */
+header.top {
+  background: linear-gradient(160deg, #ffffff 0%, #f3f6ff 100%);
+  border-bottom: 1px solid var(--line);
+  padding: 40px 0 34px;
+  text-align: center;
+}
+header.top img.logo { height: 50px; width: auto; margin-bottom: 18px; }
+header.top h1 {
+  font-size: 40px; line-height: 1.15; margin: 0 0 10px;
+  letter-spacing: -0.5px;
+}
+header.top p.sub {
+  font-size: 21px; color: var(--muted); margin: 0 auto; max-width: 680px;
+}
+
+/* ── Inhaltsverzeichnis ─────────────────────────────── */
+nav.toc {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  padding: 22px 26px; margin: 34px auto;
+  box-shadow: 0 8px 26px -14px rgba(21,28,39,.18);
+}
+nav.toc h2 { font-size: 15px; text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--muted); margin: 0 0 14px; }
+nav.toc ol { margin: 0; padding-left: 0; list-style: none; counter-reset: t; }
+nav.toc li { counter-increment: t; margin: 6px 0; }
+nav.toc a {
+  display: flex; align-items: center; gap: 14px;
+  color: var(--ink); text-decoration: none; font-weight: 600;
+  padding: 8px 10px; border-radius: 10px;
+}
+nav.toc a:hover { background: #f0f4ff; color: var(--blue); }
+nav.toc a::before {
+  content: counter(t); flex: 0 0 34px; height: 34px;
+  display: grid; place-items: center;
+  background: #e7eeff; color: var(--blue); font-weight: 800;
+  border-radius: 9px; font-size: 17px;
+}
+
+/* ── Schritt-Block ──────────────────────────────────── */
+section.step { padding: 46px 0; border-top: 1px solid var(--line); }
+section.step:first-of-type { border-top: none; }
+
+.step-head { display: flex; align-items: center; gap: 18px; margin-bottom: 8px; }
+.step-num {
+  flex: 0 0 60px; height: 60px; border-radius: 50%;
+  background: linear-gradient(160deg, var(--blue), var(--blue2));
+  color: #fff; font-size: 30px; font-weight: 800;
+  display: grid; place-items: center;
+  box-shadow: 0 8px 18px -6px rgba(0,74,198,.5);
+}
+.step-head h2 { font-size: 30px; margin: 0; line-height: 1.2; letter-spacing: -0.4px; }
+
+.lead { font-size: 22px; margin: 4px 0 22px; }
+.step p { margin: 0 0 16px; }
+.step b, .step strong { color: var(--ink); }
+.ui {
+  background: #eef3ff; color: var(--blue); font-weight: 700;
+  padding: 1px 9px; border-radius: 7px; white-space: nowrap;
+  border: 1px solid #d8e2ff;
+}
+
+/* ── Screenshot mit Markierungen ────────────────────── */
+figure.shot { position: relative; margin: 8px 0 10px; }
+figure.shot img {
+  width: 100%; display: block; border-radius: 14px;
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 40px -18px rgba(21,28,39,.30);
+}
+figure.shot figcaption {
+  font-size: 16px; color: var(--muted); text-align: center; margin-top: 12px;
+}
+.pin {
+  position: absolute; transform: translate(-50%, -50%);
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--blue); color: #fff; font-weight: 800; font-size: 21px;
+  display: grid; place-items: center;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 4px rgba(0,74,198,.35), 0 6px 14px -3px rgba(0,0,0,.4);
+}
+.pin.amber { background: var(--amber-bd); box-shadow: 0 0 0 4px rgba(240,181,55,.35), 0 6px 14px -3px rgba(0,0,0,.4); }
+
+/* Erklärliste zu den Markierungen */
+ul.marks { list-style: none; padding: 0; margin: 14px 0 0; }
+ul.marks li { display: flex; gap: 14px; align-items: flex-start; margin: 12px 0; }
+ul.marks .b {
+  flex: 0 0 34px; height: 34px; border-radius: 50%;
+  background: var(--blue); color: #fff; font-weight: 800;
+  display: grid; place-items: center; font-size: 17px; margin-top: 2px;
+}
+ul.marks .b.amber { background: var(--amber-bd); }
+
+/* ── Hinweis-Kästen ─────────────────────────────────── */
+.note {
+  border-radius: 13px; padding: 18px 20px 18px 22px; margin: 20px 0;
+  border-left: 7px solid; font-size: 19px;
+}
+.note .t { font-weight: 800; display: block; margin-bottom: 4px; }
+.note.tip { background: #eef4ff; border-color: var(--blue); }
+.note.warn { background: var(--amber-bg); border-color: var(--amber-bd); }
+.note.warn .t { color: var(--amber-tx); }
+.note.stop { background: var(--red-bg); border-color: var(--red-bd); }
+.note.stop .t { color: var(--red-tx); }
+
+/* ── Status-Legende ─────────────────────────────────── */
+.badges { display: flex; flex-wrap: wrap; gap: 12px; margin: 18px 0; }
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border-radius: 999px; font-weight: 700; font-size: 17px;
+}
+.badge .dot { width: 11px; height: 11px; border-radius: 50%; }
+.badge.green { background: var(--green-bg); color: var(--green-tx); }
+.badge.blue  { background: #e6efff; color: var(--blue); }
+.badge.amber { background: var(--amber-bg); color: var(--amber-tx); }
+.badge.red   { background: var(--red-bg); color: var(--red-tx); }
+.badge.green .dot { background: #1c7a3e; } .badge.blue .dot { background: var(--blue); }
+.badge.amber .dot { background: var(--amber-bd); } .badge.red .dot { background: var(--red-bd); }
+
+/* ── Orientierungs-Box (Aufbau) ─────────────────────── */
+.orient { display: flex; gap: 26px; align-items: flex-start; flex-wrap: wrap;
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  padding: 24px; margin: 8px 0 6px;
+  box-shadow: 0 8px 26px -16px rgba(21,28,39,.18); }
+.orient img { width: 150px; border-radius: 10px; border: 1px solid var(--line); }
+.orient .o-body { flex: 1; min-width: 280px; }
+.orient h3 { margin: 2px 0 10px; font-size: 22px; }
+.orient ul { margin: 0; padding-left: 20px; }
+.orient li { margin: 7px 0; }
+
+/* ── Fuß ────────────────────────────────────────────── */
+footer.bottom {
+  margin-top: 30px; background: #0d1530; color: #c7d0e8;
+  text-align: center; padding: 34px 22px;
+}
+footer.bottom a { color: #9db8ff; }
+footer.bottom .big { font-size: 20px; color: #fff; font-weight: 700; margin-bottom: 6px; }
+
+@media (max-width: 620px) {
+  body { font-size: 18px; }
+  header.top h1 { font-size: 30px; }
+  .step-head h2 { font-size: 24px; }
+  .step-num { flex-basis: 50px; height: 50px; font-size: 25px; }
+  .lead { font-size: 20px; }
+  .pin { width: 34px; height: 34px; font-size: 17px; }
+}
